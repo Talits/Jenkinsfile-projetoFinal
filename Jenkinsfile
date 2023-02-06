@@ -46,8 +46,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-             
-                       docker.image('talits/v1:main').withRun('-p 3000:3000 -d')
+                 sh 'docker run -p3000:3000 -d talits/v1:main'
+                }
+                       
                       
             }
         }
