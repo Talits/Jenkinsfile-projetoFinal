@@ -43,5 +43,15 @@ pipeline {
                 }
             }
         }
+        stage('Deploy') {
+            steps {
+                 script {
+                    docker.image('talits/v1:main').withRun('-p 3000:3000 -d') {c ->
+                        sleep 300
+                    }
+                }
+            }
+                
+        }
     }
 }
